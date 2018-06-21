@@ -3,11 +3,11 @@ spring:
     name: config-server
   cloud:
     config:
-      label: master
+      label: develop
       server:
         git:
-          uri: https://github.com/chendehe/ConfigurationMgr/
-          search-paths: web/
+          uri: https://github.com/chendehe/SpringCloudWeb/
+          search-paths: config-repo/
           username: chendehe
           password: ********
   rabbitmq:
