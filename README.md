@@ -1,1 +1,1 @@
-# Minimum Java Web Application Based on Spring Boot, Spring, Mybatis, etc.
+# Microservices based on Spring Cloud etc.
