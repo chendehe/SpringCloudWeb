@@ -14,12 +14,13 @@ spring:
       queue: zipkin
 
 logging:
-  level: info
+  level:
+    root: info
 
-management:
-  security:
-    # 禁用actuator鉴权
-    enabled: false
+#management:
+#  security:
+#    # 禁用actuator鉴权
+#    enabled: false
 
 test:
   config: B

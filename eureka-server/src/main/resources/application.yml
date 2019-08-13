@@ -1,12 +1,13 @@
 logging:
-  level: info
+  level:
+    root: info
 spring:
   application:
     # 注册到Eureka Server的应用名称
     name: Eureka Server HA
 ---
 spring:
-  profiles: peer1
+  profiles: default
 eureka:
   instance:
     # 配置127.0.0.1到peer的映射

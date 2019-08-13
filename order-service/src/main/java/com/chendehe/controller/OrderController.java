@@ -1,11 +1,8 @@
 package com.chendehe.controller;
 
-import com.chendehe.vo.OrderVo;
-import com.chendehe.vo.Page;
-import com.chendehe.vo.PageResult;
-import com.google.common.collect.Lists;
+import java.util.ArrayList;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,6 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.chendehe.vo.OrderVo;
+import com.chendehe.vo.Page;
+import com.chendehe.vo.PageResult;
 
 /**
  * POST 请求 http://localhost:1111/refresh 动态刷新配置
@@ -34,7 +35,7 @@ public class OrderController {
   public ResponseEntity findAll(Page page) {
     LOGGER.info("[OrderController] id is:{}", page);
     PageResult<OrderVo> result = new PageResult<>();
-    List<OrderVo> orderVoList = Lists.newArrayList();
+    List<OrderVo> orderVoList = new ArrayList<>();
     OrderVo order = new OrderVo();
     order.setId("11111");
     order.setName("order");
@@ -58,11 +59,11 @@ public class OrderController {
     return new ResponseEntity<>(orderVo, HttpStatus.CREATED);
   }
 
-  /**
-   * 查找详情. 成功返回200.
-   */
-  @GetMapping("/session")
-  public Object sessionId(HttpServletRequest request) {
-    return request.getSession().getId();
-  }
+//  /**
+  //   * 查找详情. 成功返回200.
+  //   */
+  //  @GetMapping("/session")
+  //  public Object sessionId(HttpServletRequest request) {
+  //    return request.getSession().getId();
+  //  }
 }

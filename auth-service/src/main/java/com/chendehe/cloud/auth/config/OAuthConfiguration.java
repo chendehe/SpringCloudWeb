@@ -4,10 +4,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.authentication.configurers.GlobalAuthenticationConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -73,20 +70,20 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
 
   }
 
-  @Configuration
-  @Order(-20)
-  protected static class AuthenticationManagerConfiguration extends GlobalAuthenticationConfigurerAdapter {
-
-    @Autowired
-    private DataSource dataSource;
-
-    @Override
-    public void init(AuthenticationManagerBuilder auth) throws Exception {
-      auth.jdbcAuthentication().dataSource(dataSource)
-          .withUser("dave").password("secret").roles("USER")
-          .and()
-          .withUser("anil").password("password").roles("ADMIN");
-    }
-  }
+//  @Configuration
+//  @Order(-20)
+//  protected static class AuthenticationManagerConfiguration extends GlobalAuthenticationConfigurerAdapter {
+//
+//    @Autowired
+//    private DataSource dataSource;
+//
+//    @Override
+//    public void init(AuthenticationManagerBuilder auth) throws Exception {
+//      auth.jdbcAuthentication().dataSource(dataSource)
+//          .withUser("dave").password("secret").roles("USER")
+//          .and()
+//          .withUser("anil").password("password").roles("ADMIN");
+//    }
+//  }
 
 }
