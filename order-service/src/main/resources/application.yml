@@ -1,11 +1,18 @@
 spring:
   application:
     name: order-service
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+  kafka:
+    admin:
+      client-id: order-server
+    bootstrap-servers: 127.0.0.1:9092
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
   sleuth:
     sampler:
       percentage: 1.0
@@ -27,7 +34,7 @@ test:
 
 ---
 spring:
-  profiles: peer1
+  profiles: default
 server:
   port: 1111
 ---

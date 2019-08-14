@@ -1,17 +1,24 @@
 spring:
   application:
     name: zuul-server
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
-  sleuth:
-    sampler:
-      percentage: 1.0
-  zipkin:
-    rabbitmq:
-      queue: zipkin
+  kafka:
+    admin:
+      client-id: order-server
+    bootstrap-servers: 127.0.0.1:9092
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+#  sleuth:
+#    sampler:
+#      percentage: 1.0
+#  zipkin:
+#    rabbitmq:
+#      queue: zipkin
 #    base-url: http://localhost:1080
 
 eureka:
@@ -51,14 +58,14 @@ zuul:
 #  ignore-security-headers: false
   # true禁用过滤器：PreRequestLogFilter
 #  PreRequestFilter.pre.disable: true
-management:
-  security:
-    # 禁用actuator鉴权
-    enabled: false
+#management:
+#  security:
+#    # 禁用actuator鉴权
+#    enabled: false
 
 ---
 spring:
-  profiles: peer1
+  profiles: default
 server:
   port: 1030
 
