@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 //@EnableCircuitBreaker,监控，需要引入包spring-cloud-starter-netflix-hystrix
 //可以用 hystrix-dashboard 可视化监控
-//@EnableCircuitBreaker
+@EnableCircuitBreaker
 //Edgware可忽略配置@EnableDiscoveryClient，引入包即可
 @EnableFeignClients/*(defaultConfiguration = FeignConfig.class)*/
 @SpringBootApplication

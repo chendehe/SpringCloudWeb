@@ -23,7 +23,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:1000/eureka/
+      defaultZone: http://admin:admin@localhost:1000/eureka/
 
 #management:
 #  security:
