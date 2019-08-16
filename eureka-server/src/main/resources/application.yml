@@ -26,9 +26,9 @@ eureka:
     enable-self-preservation: false
   client:
     # 是否将自己注册到Eureka Server，默认true
-    registerWithEureka: true
+    registerWithEureka: false
     # 是否从Eureka Server获取信息，默认true
-    fetchRegistry: true
+    fetchRegistry: false
     serviceUrl:
       # 交互地址，集群地址','分隔
       defaultZone: http://admin:admin@peer2:1001/eureka/
