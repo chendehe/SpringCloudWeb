@@ -16,6 +16,9 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+        <!--启用断路器仪表盘:http://localhost:1050/hystrix -->
+        <!--复制：http://localhost:1020/actuator/hystrix.stream -->
+        <!--一次只能监控单个，需要使用 turbine-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>

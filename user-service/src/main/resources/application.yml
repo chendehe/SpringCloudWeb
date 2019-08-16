@@ -33,6 +33,16 @@ eureka:
 test:
   config: A
 
+# 详细的健康信息
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+      web:
+        exposure:
+          include: health,info,hystrix.stream
+
 feign:
   client:
     config:

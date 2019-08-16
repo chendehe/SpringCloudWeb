@@ -21,7 +21,7 @@ public class UserServiceFallbackFactory implements FallbackFactory<UserServiceIm
       @Override
       public String findOne(String id) {
         System.out.println("fallback reason was:" + cause);
-        return "Error";
+        return "ErrorFactory";
       }
 
       @Override
