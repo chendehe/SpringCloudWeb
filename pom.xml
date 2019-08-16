@@ -26,6 +26,9 @@
         <module>admin-server</module>
         <module>zipkin-server</module>
         <module>auth-service</module>
+        <module>order-service-stream</module>
+        <module>user-service-stream</module>
+        <module>hystrix-turbine-stream</module>
     </modules>
 
     <properties>

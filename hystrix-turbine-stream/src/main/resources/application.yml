@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: hystrix-turbine
+  kafka:
+    admin:
+      client-id: hystrix-turbine
+    bootstrap-servers: 127.0.0.1:9092
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:admin@peer1:1000/eureka/
+server:
+  port: 1060
