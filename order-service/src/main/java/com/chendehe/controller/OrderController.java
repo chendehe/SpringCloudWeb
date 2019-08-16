@@ -1,10 +1,12 @@
 package com.chendehe.controller;
 
+import com.chendehe.service.UserServiceImpl;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
@@ -28,6 +30,9 @@ public class OrderController {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(OrderController.class);
 
+  @Autowired
+  UserServiceImpl userService;
+
   @Value("${test.config}")
   private String config;
 
@@ -50,6 +55,7 @@ public class OrderController {
   @GetMapping("/{id}")
   public String findOne(@PathVariable String id) {
     LOGGER.info("[OrderController] id is:{}", id);
+    userService.get(id);
     return "find order..." + config;
   }
 

@@ -4,9 +4,10 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://peer1:1000/eureka/
+      defaultZone: http://admin:admin@peer1:1000/eureka/
 server:
   port: 1060
 turbine:
   app-config: order-service,user-service
+#  app-config: user-service
   cluster-name-expression: "'default'"
