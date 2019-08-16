@@ -32,6 +32,11 @@ logging:
 test:
   config: B
 
+# 详细的健康信息
+management:
+  endpoint:
+    health:
+      show-details: always
 ---
 spring:
   profiles: default

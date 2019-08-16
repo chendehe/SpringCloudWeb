@@ -8,6 +8,10 @@ spring:
 ---
 spring:
   profiles: default
+  security: # 安全登录
+    user:
+      name: admin
+      password: admin
 eureka:
   instance:
     # 配置127.0.0.1到peer的映射
@@ -22,26 +26,28 @@ eureka:
     enable-self-preservation: false
   client:
     # 是否将自己注册到Eureka Server，默认true
-    registerWithEureka: false
+    registerWithEureka: true
     # 是否从Eureka Server获取信息，默认true
-    fetchRegistry: false
+    fetchRegistry: true
     serviceUrl:
       # 交互地址，集群地址','分隔
-      defaultZone: http://peer1:1001/eureka/
+      defaultZone: http://admin:admin@peer2:1001/eureka/
 server:
   port: 1000
 
 ---
 spring:
   profiles: peer2
+  security: # 安全登录
+    user:
+      name: admin
+      password: admin
 eureka:
   instance:
     hostname: peer2
-  server:
-    enable-self-preservation: true
   client:
     serviceUrl:
-      defaultZone: http://peer1:1000/eureka/
+      defaultZone: http://admin:admin@peer1:1000/eureka/
 server:
   port: 1001
 
